@@ -46,17 +46,23 @@
     </style> -->
   </head>
   <body>
-    <header>
-      <nav>
+    <header class="header">
+      <nav class="navigation">
         <span class="nav-dot"></span>
-        <span class="nav-title">Bridge Collective</span>
+        <h1 class="brand-title">Bridge Collective</h1>
       </nav>
-      <img
-        class="side-menu"
-        src="assets/images/icon-menu.svg"
-        alt=""
-        aria-hidden="true"
-      />
+      <!--  بعد (أفضل لسهولة الوصول Accessibility) -->
+      <button class="menu-btn" aria-label="Toggle navigation menu">
+        <img src="assets/images/icon-menu.svg" alt="" aria-hidden="true" />
+      </button>
+      <ul class="menu-toggle">
+        <li><a href="#">About</a></li>
+        <li><a href="#">Our Work</a></li>
+        <li><a href="#">Partners</a></li>
+        <li><a href="#">Annual</a></li>
+        <li><a href="#">Annual Report</a></li>
+        <li><a href="#">Donate</a></li>
+      </ul>
     </header>
 
     <main class="container">
@@ -66,77 +72,66 @@
           We fund the schools, train the teachers, and measure what works — so
           every child we reach today becomes a graduate tomorrow.
         </p>
-        <ul class="menu">
-          <li><a href="#">About</a></li>
-          <li><a href="#">Our Work</a></li>
-          <li><a href="#">Partners</a></li>
-          <li><a href="#">Annual</a></li>
-          <li><a href="#">Annual Report</a></li>
-          <li><a href="#">Donate</a></li>
-        </ul>
       </section>
-      <ul class="stats">
+      <ul class="stats-section">
         <!-- 1 -->
-        <li class="stat">
-          <div class="stat-number">
+        <li class="stat-card">
+          <div class="stat-header">
             <img
               src="assets/images/icon-sparkle.svg"
               alt=""
               aria-hidden="true"
             />
-            <span class="number">2.4M </span>
+            <span class="stat-number">2.4M </span>
           </div>
-          <div class="stat-info">
-            <p class="info-description">
-              <span>Students reached</span>
-              <br />
-              Across 31 countries since 2011.
-            </p>
+          <div class="stat-body">
+            <h2 class="stat-title">Students reached</h2>
+            <p class="stat-description">Across 31 countries since 2011.</p>
           </div>
         </li>
         <!-- 2 -->
-        <li class="stat">
-          <div class="stat-number">
+        <li class="stat-card">
+          <div class="stat-header">
             <img src="assets/images/icon-plus.svg" alt="" aria-hidden="true" />
-            <span class="number">1,284</span>
+            <span class="stat-number">1,284</span>
           </div>
-          <div class="stat-info">
-            <p class="info-description">
-              <span>Schools partnered </span><br />
+          <div class="stat-body">
+            <h2 class="stat-title">Schools partnered</h2>
+            <p class="stat-description">
               In 14 countries, from Kenya to Guatemala.
             </p>
           </div>
         </li>
         <!-- 3 -->
-        <li class="stat">
-          <div class="stat-number">
+        <li class="stat-card">
+          <div class="stat-header">
             <img
               src="assets/images/icon-arrow-right.svg"
               alt=""
               aria-hidden="true"
             />
-            <span class="number">38K</span>
+            <span class="stat-number">38K</span>
           </div>
-          <div class="stat-info">
-            <p class="info-description">
-              <span>Teachers trained</span> <br />
+          <div class="stat-body">
+            <h2 class="stat-title">Teachers trained</h2>
+            <p class="stat-description">
               Equipped with modern tools and methodology.
             </p>
           </div>
         </li>
         <!-- 4 -->
-        <li class="stat">
-          <div class="stat-number">
+        <li class="stat-card">
+          <div class="stat-header">
             <img
               src="assets/images/icon-trending-up.svg"
               alt=""
               aria-hidden="true"
             />
-            <span class="number">3.1x</span>
+            <span class="stat-number">3.1x</span>
           </div>
-          <div class="stat-info">
-            <p class="info-description">
-              <span>Graduation lift</span> <br />
+          <div class="stat-body">
+            <h2 class="stat-title">Graduation lift</h2>
+            <p class="stat-description">
               Partner schools outperform national averages 3x.
             </p>
           </div>
@@ -144,8 +139,8 @@
       </ul>
     </main>
 
-    <footer>
-      <span class="copy-right">© 2026 Bridge Collective</span>
+    <footer class="footer">
+      <span class="copyright">© 2026 Bridge Collective</span>
       <span class="register-number">Registered charity 12345678</span>
     </footer>
 
