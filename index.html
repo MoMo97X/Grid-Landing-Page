@@ -1,60 +1,168 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <!-- displays site properly based on user's device -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- fav-icon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <!-- Open Graph meta tags -->
+    <meta property="og:title" content="Molly - Single Page Design" />
+    <meta
+      property="og:description"
+      content="A modern, fully responsive Results Summary component featuring semantic markup and accessible UI design.."
+    />
+    <meta
+      property="og:image"
+      content="https://momo97x.github.io/Result-Summery-Component/assets/images/desktop-preview.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Preview of the Results Summary Component project"
+    />
+    <title>Frontend Mentor | Grid landing page</title>
+    <meta
+      name="description"
+      content="A responsive Results Summary Component built with HTML5, CSS3, and modern Flexbox/Grid techniques. Fully accessible and designed based on Frontend Mentor standards."
+    />
+    <!-- stylesheet 👍 -->
+    <link rel="stylesheet" href="style.css" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <!-- <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style> -->
+  </head>
+  <body>
+    <header>
+      <nav>
+        <span class="nav-dot"></span>
+        <span class="nav-title">Bridge Collective</span>
+      </nav>
+      <img
+        class="side-menu"
+        src="assets/images/icon-menu.svg"
+        alt=""
+        aria-hidden="true"
+      />
+    </header>
 
-  <title>Frontend Mentor | Grid landing page</title>
+    <main class="container">
+      <section class="hero-section">
+        <h1 class="hero-title">A classroom for every child.</h1>
+        <p class="hero-description">
+          We fund the schools, train the teachers, and measure what works — so
+          every child we reach today becomes a graduate tomorrow.
+        </p>
+        <ul class="menu">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Our Work</a></li>
+          <li><a href="#">Partners</a></li>
+          <li><a href="#">Annual</a></li>
+          <li><a href="#">Annual Report</a></li>
+          <li><a href="#">Donate</a></li>
+        </ul>
+      </section>
+      <ul class="stats">
+        <!-- 1 -->
+        <li class="stat">
+          <div class="stat-number">
+            <img
+              src="assets/images/icon-sparkle.svg"
+              alt=""
+              aria-hidden="true"
+            />
+            <span class="number">2.4M </span>
+          </div>
+          <div class="stat-info">
+            <p class="info-description">
+              <span>Students reached</span>
+              <br />
+              Across 31 countries since 2011.
+            </p>
+          </div>
+        </li>
+        <!-- 2 -->
+        <li class="stat">
+          <div class="stat-number">
+            <img src="assets/images/icon-plus.svg" alt="" aria-hidden="true" />
+            <span class="number">1,284</span>
+          </div>
+          <div class="stat-info">
+            <p class="info-description">
+              <span>Schools partnered </span><br />
+              In 14 countries, from Kenya to Guatemala.
+            </p>
+          </div>
+        </li>
+        <!-- 3 -->
+        <li class="stat">
+          <div class="stat-number">
+            <img
+              src="assets/images/icon-arrow-right.svg"
+              alt=""
+              aria-hidden="true"
+            />
+            <span class="number">38K</span>
+          </div>
+          <div class="stat-info">
+            <p class="info-description">
+              <span>Teachers trained</span> <br />
+              Equipped with modern tools and methodology.
+            </p>
+          </div>
+        </li>
+        <!-- 4 -->
+        <li class="stat">
+          <div class="stat-number">
+            <img
+              src="assets/images/icon-trending-up.svg"
+              alt=""
+              aria-hidden="true"
+            />
+            <span class="number">3.1x</span>
+          </div>
+          <div class="stat-info">
+            <p class="info-description">
+              <span>Graduation lift</span> <br />
+              Partner schools outperform national averages 3x.
+            </p>
+          </div>
+        </li>
+      </ul>
+    </main>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+    <footer>
+      <span class="copy-right">© 2026 Bridge Collective</span>
+      <span class="register-number">Registered charity 12345678</span>
+    </footer>
 
-  <!-- Nav -->
-  Bridge Collective
+    <!-- Nav -->
 
-  <!-- Hero -->
-  A classroom for every child.
+    <!-- Hero -->
 
-  We fund the schools, train the teachers, and measure what works — so every child we reach today becomes a graduate tomorrow.
+    <!-- Stats -->
 
-  <!-- Stats -->
-  2.4M
-  Students reached
-  Across 31 countries since 2011.
+    <!-- Footer -->
 
-  1,284
-  Schools partnered
-  In 14 countries, from Kenya to Guatemala.
+    <!-- Menu panel — hidden until the hamburger is activated -->
 
-  38K
-  Teachers trained
-  Equipped with modern tools and methodology.
-
-  3.1×
-  Graduation lift
-  Partner schools outperform national averages 3x.
-
-  <!-- Footer -->
-  © 2026 Bridge Collective
-  Registered charity 12345678
-
-  <!-- Menu panel — hidden until the hamburger is activated -->
-  About
-  Our Work
-  Partners
-  Annual Report
-  Donate
-
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+    <!-- 
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by <a href="#">Your Name Here</a>.
+    </div> 
+  --></body>
 </html>
