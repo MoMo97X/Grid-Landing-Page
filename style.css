@@ -1,3 +1,4 @@
+/* General Rules */
 *,
 *::before,
 *::after {
@@ -5,12 +6,24 @@
 }
 
 :root {
-  --White: hsl(0, 0%, 100%);
-  --Blue: hsl(224, 100%, 95%);
-  --Blue400: hsl(220, 100%, 64%);
-  --Blue600: hsl(228, 100%, 60%);
-  --Blue700: hsl(228, 99%, 58%);
-  --Black: hsl(0, 0%, 0%) /* — used at 25% opacity for the menu overlay; */;
+  /* Primary color */
+  --WhiteBlue: #e5ecff25;
+  --Blue400: #4785ff;
+  --Blue600: #335cff;
+  --Blue700: #2a54fe;
+
+  /* neutral color */
+  --White: #ffffff;
+  --Black: #000000; /* — used at 25% opacity for the menu overlay; */
+
+  /* font's */
+  --paragraph: 1.063rem;
+  --text: 0.875rem;
+  --small: 0.6rem;
+  --text-2: 1.5rem;
+
+  /* padding */
+  --pad: clamp(1.25rem, 2.5vw, 2rem);
 }
 
 @font-face {
@@ -28,9 +41,11 @@
 body {
   margin: 0;
   min-height: 100vh;
+  background-color: var(--Blue700);
 }
 
 ul {
+  margin: 0;
   padding: 0;
   list-style: none;
 }
@@ -40,11 +55,180 @@ a {
 }
 
 p {
-  font-size: 17px;
+  margin: 0;
+  font-size: var(--paragraph);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
 }
 
 .stat-description,
 .navigation,
 .footer {
-  font-size: 14px;
+  font-size: var(--text);
+}
+
+/* main content start */
+
+/* header element start */
+.header {
+  padding: 1.25rem;
+  border-bottom: 1px solid var(--WhiteBlue);
+}
+
+.header .side-menu {
+  position: absolute;
+  background-color: var(--Blue400);
+  min-height: 100vh;
+  top: 0;
+  right: -100px;
+  display: none;
+}
+
+.header .navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navigation .brand {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navigation .brand .nav-dot {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background-color: var(--White);
+}
+
+.navigation .brand-title {
+  font-family: specimen-inter-1, Arial, impact, sans-serif;
+  font-size: 0.6rem;
+  font-weight: normal;
+  color: var(--White);
+  margin-inline: 0.2rem;
+}
+
+.navigation .menu-btn {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+/* main content start */
+
+.container {
+  color: var(--White);
+}
+
+.container .hero-section {
+  padding: var(--pad);
+  border-bottom: 1px solid var(--WhiteBlue);
+}
+
+.hero-section .hero-title {
+  margin-block: 1.1rem;
+  font-family: specimen-inter-2, Arial, impact, sans-serif;
+}
+
+.hero-section .hero-description {
+  max-width: 90%;
+  margin-block: 1.1rem;
+  font-family: specimen-inter-1, Arial, impact, sans-serif;
+  font-size: var(--text);
+  color: var(--White);
+  opacity: 0.7;
+}
+
+/* stats section start */
+.stats-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  font-family: specimen-inter-1, Arial, impact, sans-serif;
+  /* grid-template-rows: repeat(4, 1fr); */
+}
+
+.stats-section .stat-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 12.5rem; /* ~200px or adjust with clamp/padding */
+  padding: clamp(1.25rem, 2.5vw, 2rem);
+  border-bottom: 1px solid var(--WhiteBlue);
+}
+
+.stats-section .stat-card:hover {
+  cursor: pointer;
+  background-color: var(--Blue600);
+}
+
+/* stat-header */
+
+.stat-card .stat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stat-card .stat-header img {
+  width: var(--paragraph);
+}
+
+.stat-card .stat-header .stat-number {
+  font-size: var(--text-2);
+}
+
+/* stat-body */
+
+.stat-card .stat-body {
+  font-family: specimen-inter-2, Arial, impact, sans-serif;
+  font-size: var(--small);
+}
+
+.stat-card .stat-body .stat-title {
+  margin-bottom: 0.25rem;
+  font-size: inherit;
+}
+
+.stat-card .stat-body .stat-description {
+  color: var(--White);
+  opacity: 0.7;
+  font-size: inherit;
+}
+
+/* footer start */
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  opacity: 0.7;
+  color: var(--White);
+  padding: var(--pad);
+  font-family: specimen-inter-1, Arial, impact, sans-serif;
+  font-size: var(--small);
+}
+
+.attribution {
+  font-family: specimen-inter-1, Arial, impact, sans-serif;
+  font-size: var(--small);
+  text-align: center;
+  color: var(--White);
+}
+.attribution a {
+  color: var(--Black);
 }
