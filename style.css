@@ -45,6 +45,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow-x: hidden;
 }
 
 ul {
@@ -54,6 +55,7 @@ ul {
 }
 
 a {
+  color: var(--White);
   text-decoration: none;
 }
 
@@ -76,40 +78,77 @@ img {
   max-width: 100%;
 }
 
-.stat-description,
-.navigation,
-.footer {
-  font-size: var(--text);
+.menu-btn {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  align-self: flex-end;
 }
 
 /* main content start */
 
 /* header element start */
 .header {
-  padding: 1.25rem;
+  padding: var(--pad);
   border-bottom: 1px solid var(--WhiteBlue);
 }
 
 .header .side-menu {
-  position: absolute;
-  background-color: var(--Blue400);
-  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  min-width: 100%;
+  min-height: 325px;
+  padding: var(--pad);
+
+  border-top: 1px solid var(--WhiteBlue);
+  background-color: var(--Blue600);
+  transition: right 0.5s linear;
+
+  position: fixed;
   top: 0;
   right: -100%;
-  display: none;
-  transition: right 0.5s linear;
+  z-index: 100;
+  /* Pushes itself 100% of its own width to the right */
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.header .side-menu li {
+  flex: 1;
+  display: grid;
+  place-content: center;
+}
+
+.header .side-menu a {
+  font-family: specimen-inter-1;
+}
+
+.header .side-menu a:hover {
+  padding-bottom: 5px;
+  border-bottom: 2px solid var(--White);
+}
+
+.header .side-menu.active {
+  right: 0;
+  transform: translateX(0);
 }
 
 .header .navigation {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  overflow-x: hidden;
 }
 
 .navigation .brand {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 3;
 }
 
 .navigation .brand .nav-dot {
@@ -127,14 +166,7 @@ img {
   margin-inline: 0.2rem;
 }
 
-.navigation .menu-btn {
-  border: none;
-  outline: none;
-  background-color: transparent;
-  cursor: pointer;
-}
-
-.navigation .menu-btn img:hover {
+.navigation .menu-btn:hover {
   display: block;
   right: 100%;
 }
@@ -260,8 +292,18 @@ img {
     font-weight: bold;
   }
 
+  .header .side-menu {
+    height: 100vh;
+    min-width: 25%;
+    align-items: flex-start;
+  }
+
+  .header .side-menu li a {
+    width: 100%;
+    font-size: 1.25rem;
+  }
+
   .container {
-    /* min-height: 90vh; */
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
   }
