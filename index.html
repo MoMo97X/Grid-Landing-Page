@@ -48,14 +48,18 @@
   <body>
     <header class="header">
       <nav class="navigation">
-        <span class="nav-dot"></span>
-        <h1 class="brand-title">Bridge Collective</h1>
+        <div class="brand">
+          <span class="nav-dot"></span>
+          <h1 class="brand-title">Bridge Collective</h1>
+        </div>
+
+        <!--  بعد (أفضل لسهولة الوصول Accessibility) -->
+        <button class="menu-btn" aria-label="Toggle navigation menu">
+          <img src="assets/images/icon-menu.svg" alt="" aria-hidden="true" />
+        </button>
       </nav>
-      <!--  بعد (أفضل لسهولة الوصول Accessibility) -->
-      <button class="menu-btn" aria-label="Toggle navigation menu">
-        <img src="assets/images/icon-menu.svg" alt="" aria-hidden="true" />
-      </button>
-      <ul class="menu-toggle">
+
+      <ul class="side-menu">
         <li><a href="#">About</a></li>
         <li><a href="#">Our Work</a></li>
         <li><a href="#">Partners</a></li>
