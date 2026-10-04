@@ -46,27 +46,26 @@
           <h1 class="brand-title">Bridge Collective</h1>
         </div>
 
-        <!--  بعد (أفضل لسهولة الوصول Accessibility) -->
-        <button
-          id="open"
-          class="menu-btn open"
-          aria-label="Toggle navigation menu"
-        >
-          <img src="assets/images/icon-menu.svg" alt="" aria-hidden="true" />
-        </button>
-      </nav>
+        <div class="menu-buttons">
+          <button
+            class="menu-btn open-button"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+          >
+            <img src="assets/images/icon-menu.svg" alt="" aria-hidden="true" />
+          </button>
 
-      <ul class="side-menu">
-        <button id="close" class="menu-btn" aria-label="Toggle navigation menu">
-          <img src="assets/images/icon-close.svg" alt="" aria-hidden="true" />
-        </button>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Our Work</a></li>
-        <li><a href="#">Partners</a></li>
-        <li><a href="#">Annual</a></li>
-        <li><a href="#">Annual Report</a></li>
-        <li><a href="#">Donate</a></li>
-      </ul>
+          <button
+            class="menu-btn close-button"
+            type="button"
+            aria-label="Close navigation menu"
+            aria-expanded="true"
+          >
+            <img src="assets/images/icon-close.svg" alt="" aria-hidden="true" />
+          </button>
+        </div>
+      </nav>
     </header>
 
     <main class="container">
@@ -77,6 +76,14 @@
           every child we reach today becomes a graduate tomorrow.
         </p>
       </section>
+      <ul class="side-menu">
+        <li><a href="#">About</a></li>
+        <li><a href="#">Our Work</a></li>
+        <li><a href="#">Partners</a></li>
+        <li><a href="#">Annual</a></li>
+        <li><a href="#">Annual Report</a></li>
+        <li><a href="#">Donate</a></li>
+      </ul>
       <ul class="stats-section">
         <!-- 1 -->
         <li class="stat-card">
@@ -155,16 +162,30 @@
     </div>
 
     <script>
-      const openBtn = document.getElementById("open");
-      const closeBtn = document.getElementById("close");
-      const sideMenu = document.querySelector(".side-menu");
+      const openButton = document.querySelector(".open-button");
+      const closeButton = document.querySelector(".close-button");
+      const menu = document.querySelector(".side-menu");
 
-      openBtn.addEventListener("click", () => {
-        sideMenu.classList.add("active");
+      openButton.addEventListener("click", () => {
+        openButton.style.display = "none";
+        closeButton.style.display = "block";
+
+        menu.classList.add("active");
+        document.querySelector(".hero-section").classList.add("layout-cover");
+        document.querySelector(".stats-section").classList.add("layout-cover");
       });
 
-      closeBtn.addEventListener("click", () => {
-        sideMenu.classList.remove("active");
+      closeButton.addEventListener("click", () => {
+        closeButton.style.display = "none";
+        openButton.style.display = "block";
+
+        menu.classList.remove("active");
+        document
+          .querySelector(".hero-section")
+          .classList.remove("layout-cover");
+        document
+          .querySelector(".stats-section")
+          .classList.remove("layout-cover");
       });
     </script>
   </body>
