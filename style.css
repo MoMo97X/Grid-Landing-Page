@@ -202,7 +202,6 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /*  position: relative; */
   padding: var(--pad);
   border-bottom: 1px solid var(--WhiteBlue);
 }
