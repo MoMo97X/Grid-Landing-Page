@@ -1,112 +1,133 @@
-# Frontend Mentor - Grid landing page
+# Frontend Mentor - Grid landing page solution
 
-![Design preview for the Grid landing page coding challenge](./preview.jpg)
+This is a solution to the [Grid landing page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/grid-landing-page). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Welcome! 👋
+## Table of contents
 
-Thanks for checking out this coding challenge.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+  - [AI Collaboration](#ai-collaboration)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+## Overview
 
-**To do this challenge, you need a basic understanding of HTML and CSS.** A little JavaScript is optional for opening and closing the navigation menu.
+**Grid Landing Page** is a front-end showcase highlighting modern CSS layout techniques—specifically **CSS Grid**, **Flexbox**, and **CSS Custom Properties (Variables)**. It provides a clean, fast-loading, fully responsive web interface designed to scale seamlessly across all screen dimensions, from high-resolution desktop monitors to smartphones.
 
-## The challenge
+### The challenge
 
-Build a landing page hero section for a fictional education nonprofit and get it looking as close to the design as possible.
-
-The page splits a headline and description on the left against a 2x2 grid of impact stats on the right, with a thin nav above and a footer strip below. There's no imagery to lean on, so the layout, the spacing rhythm, and the hairline dividers between the cards are doing all the work. The grid is a good excuse to reach for CSS Grid, and the three viewports each rearrange it differently.
-
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
-
-Your users should be able to:
+Users should be able to:
 
 - View the optimal layout for the page depending on their device's screen size
 - See hover and focus states for all interactive elements on the page
 - Open and close the navigation menu at any screen size (optional JavaScript)
 
-## Ideas to test yourself
+### Screenshot
 
-The design gives you plenty to build. If you want to push further, here are some optional extensions to try:
+![](preview.jpg)
 
-- Animate the menu panel so it slides in from the edge instead of appearing instantly
-- Count the stat numbers up from zero when the page loads
-- Trap keyboard focus inside the menu while it's open so tabbing can't escape behind it
-- Respect `prefers-reduced-motion` so any animation turns itself off for people who ask for it
-- Load the four stats from a JSON file instead of hardcoding them in your HTML
-- Turn the page into a PWA so it can be installed and viewed offline
+### Links
 
-## Getting started
+- solution URL: [GitHub Repository](https://github.com/MoMo97X/Grid-Landing-Page)
+- Live Site URL: [GitHub Pages](https://momo97x.github.io/Grid-Landing-Page/)
 
-### What's included
+## My process
 
-Your task is to build out the project to the designs inside the `/design` folder. You'll find a mobile and a desktop version of the design, plus the open navigation menu and the hover states.
+### Built with
 
-In your download:
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+- Mobile-first workflow
+- Modern fluid sizing (`clamp()`, `min()`)
+- Vinella java script
 
-- Mobile and desktop designs (JPG format)
-- All required assets in the `/assets` folder
-- The Inter variable font file (or link to Google Fonts)
-- `style-guide.md` with colors, fonts, and other design specs
+### What I learned
 
-**Want more accurate builds?** The designs are in JPG static format, which means you'll need to use your best judgment for styles such as `font-size`, `padding`, and `margin`. If you'd like the Figma design file to help build a more accurate solution faster, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+#### 1. Fluid Layouts with Responsive CSS Grid
 
-## Using AI coding assistants
+Instead of relying heavily on rigid media queries, I leveraged CSS Grid with repeat() and minmax() to allow cards to automatically reflow across viewport sizes:
 
-We've included two files to help you if you're using AI coding assistants (like Claude, GitHub Copilot, Cursor, etc.) while working on this challenge:
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  align-items: stretch;
+}
+```
 
-- `AGENTS.md` - Contains detailed instructions for AI assistants on how to help you with this challenge. It's tailored to this challenge's difficulty level, so the AI will provide guidance appropriate to your learning stage—offering more support for beginner challenges and encouraging more independence on advanced ones.
-- `CLAUDE.md` - A pointer file that directs Claude-based tools to the AGENTS.md instructions.
+#### 2. Structural Composition using Named Grid Areas
 
-**How to use them:** You don't need to do anything! These files are automatically detected by most AI coding tools. The AI will read them and adjust its behavior to be a better learning partner—guiding you toward solutions rather than just giving you the answers.
+For desktop viewports, using explicit grid-template-areas allowed for clear spatial organization without polluting HTML markup with unnecessary wrapper divs:
 
-**Note:** These files are designed to help you *learn*, not to do the work for you. The AI is instructed to ask questions, give hints, and explain concepts rather than writing complete solutions.
+```css
+@media (min-width: 1024px) {
+  .landing-layout {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      "hero hero feature-a feature-b"
+      "hero hero feature-c feature-d"
+      "footer-a footer-b footer-c footer-c";
+  }
+}
+```
 
-## Building your project
+#### 3. Writing JavaScript and manipulate the DOM
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+Using a script tag to integrate js into html file, intruducing addEventlistner function, variables.
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+```js
+const openButton = document.querySelector(".open-button");
+const closeButton = document.querySelector(".close-button");
+const menu = document.querySelector(".side-menu");
 
-### Want some support on the challenge?
+openButton.addEventListener("click", () => {
+  openButton.style.display = "none";
+  closeButton.style.display = "block";
 
-[Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
+  menu.classList.add("active");
+  document.querySelector("main").classList.add("layout-cover");
+  document.querySelector(".stats-section").classList.add("layout-cover");
+});
+```
 
-## Deploying your project
+### Continued development
 
-As mentioned above, there are many ways to host your project for free. Our recommended hosts are:
+- Master modern layout tools like CSS subgrid for nested alignment across card elements.
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+- Deepen keyboard navigation testing and screen-reader accessibility auditing (WCAG compliance).
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://www.frontendmentor.io/guides/hosting-your-solution).
+- Continue refining AI-assisted development workflows for rapid UI prototyping and refactoring
 
-## Submitting your solution
+### Useful resources
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://www.frontendmentor.io/guides/how-to-submit-solutions) for tips on how to do this.
+- [A Complate Guide to CSS Grid (CSS-Tricks)](https://css-tricks.com/snippets/css/a-guide-to-grid/) - Comprehensive guide for understanding explicit/implicit tracks and template areas.
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+- [MDN Web Docs: CSS grid Layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout) - Standard reference for modern CSS layout syntax and boundary rules.
 
-**We strongly recommend overwriting this `README.md` with a custom one.** We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code. The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings.
+### AI Collaboration
 
-## Sharing your solution
+- Layout Optimization: Analyzed grid tracks and breakpoint transitions to eliminate unnecessary media queries.
 
-There are multiple places you can share your solution:
+- Git Workflow & Best Practices: Configured project commit standards, .gitignore rules, and automated documentation generation.
 
-1. Submit it on the platform and share your solution page in the **#finished-projects** channel of our [community](https://www.frontendmentor.io/community)
-2. Share on [X (formerly Twitter)](https://x.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in your post. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on [LinkedIn](https://www.linkedin.com/company/frontend-mentor/).
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
+- Code Refactoring: Assisted in cleaning up repetitive utility classes and enforcing custom CSS properties across the stylesheet.
 
-## Got feedback for us?
+## Author
 
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
+- Website - [@MoMo97X](https://www.your-site.com)
+- Frontend Mentor - [@MuhammedArrujbani](https://www.frontendmentor.io/profile/yourusername)
 
-**This challenge is completely free. Please share it with anyone who will find it useful for practice.**
+## Acknowledgments
 
-**Have fun building!** 🚀
+Thanks to the Frontend Mentor community for providing realistic design specs and challenges that mirror real-world front-end engineering projects.

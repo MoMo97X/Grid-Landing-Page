@@ -40,11 +40,7 @@
 
 body {
   margin: 0;
-  min-height: 100vh;
-  background-color: var(--Blue700);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+
   overflow-x: hidden;
 }
 
@@ -76,6 +72,14 @@ h6 {
 img {
   display: block;
   max-width: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--Blue700);
 }
 
 .menu-buttons {
@@ -144,10 +148,11 @@ img {
 /* main content start */
 .container {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  flex: 1;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  align-items: stretch;
   position: relative;
+  flex: 1;
   width: 100%;
   color: var(--White);
   overflow: hidden;
@@ -169,10 +174,6 @@ img {
   transition: all 0.3s linear;
 }
 
-.container .side-menu #close {
-  margin-bottom: 1.25rem;
-}
-
 .container .side-menu li {
   width: 100%;
   padding-block: 0.57rem;
@@ -180,7 +181,7 @@ img {
 
 .container .side-menu a {
   padding-bottom: 5px;
-  font-family: specimen-inter-1;
+  font-family: specimen-inter-1, Arial, impact, sans-serif;
   transition: 0.3s linear;
 }
 
@@ -306,9 +307,15 @@ img {
     font-weight: bold;
   }
 
+  /* .container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    z-index: 1;
+  } */
+
   .container .side-menu {
     height: 100vh;
-    min-width: 50%;
+    min-width: 10%;
     align-items: flex-start;
     z-index: 2;
   }
@@ -318,13 +325,8 @@ img {
   }
 
   .container .side-menu li a {
-    width: 100%;
     font-size: 1.25rem;
-  }
-
-  .container {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr;
+    width: 100%;
   }
 
   .hero-section .hero-title {
