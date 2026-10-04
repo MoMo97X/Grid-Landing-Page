@@ -166,7 +166,7 @@ img {
   background-color: var(--Blue600);
 
   transform: translateX(100%);
-  transition: 0.3s linear;
+  transition: all 0.3s linear;
 }
 
 .container .side-menu #close {
