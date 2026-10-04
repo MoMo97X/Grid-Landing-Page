@@ -104,9 +104,7 @@ openButton.addEventListener("click", () => {
 ### Continued development
 
 - Master modern layout tools like CSS subgrid for nested alignment across card elements.
-
 - Deepen keyboard navigation testing and screen-reader accessibility auditing (WCAG compliance).
-
 - Continue refining AI-assisted development workflows for rapid UI prototyping and refactoring
 
 ### Useful resources
