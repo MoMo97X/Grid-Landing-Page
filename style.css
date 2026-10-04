@@ -78,12 +78,26 @@ img {
   max-width: 100%;
 }
 
+.menu-buttons {
+  position: relative;
+  width: 32px;
+  height: 32px;
+}
+
 .menu-btn {
-  border: none;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
   outline: none;
-  background-color: transparent;
+  padding: 0;
+  background: transparent;
   cursor: pointer;
-  align-self: flex-end;
+}
+
+.close-button {
+  display: none;
 }
 
 /* main content start */
@@ -92,49 +106,6 @@ img {
 .header {
   padding: var(--pad);
   border-bottom: 1px solid var(--WhiteBlue);
-}
-
-.header .side-menu {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-
-  min-width: 100%;
-  min-height: 325px;
-  padding: var(--pad);
-
-  border-top: 1px solid var(--WhiteBlue);
-  background-color: var(--Blue600);
-  transition: right 0.5s linear;
-
-  position: fixed;
-  top: 0;
-  right: -100%;
-  z-index: 100;
-  /* Pushes itself 100% of its own width to the right */
-  transform: translateX(100%);
-  transition: transform 0.3s ease-in-out;
-}
-
-.header .side-menu li {
-  flex: 1;
-  display: grid;
-  place-content: center;
-}
-
-.header .side-menu a {
-  font-family: specimen-inter-1;
-}
-
-.header .side-menu a:hover {
-  padding-bottom: 5px;
-  border-bottom: 2px solid var(--White);
-}
-
-.header .side-menu.active {
-  right: 0;
-  transform: translateX(0);
 }
 
 .header .navigation {
@@ -148,7 +119,6 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 3;
 }
 
 .navigation .brand .nav-dot {
@@ -172,22 +142,67 @@ img {
 }
 
 /* main content start */
-
 .container {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
-  overflow: hidden;
-
+  flex: 1;
+  position: relative;
   width: 100%;
   color: var(--White);
-  flex: 1;
+  overflow: hidden;
+}
+
+.container .side-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  position: absolute;
+  top: 0;
+  right: -100%;
+  min-width: 100%;
+  padding: var(--pad);
+  border-top: 1px solid var(--WhiteBlue);
+  background-color: var(--Blue600);
+
+  transform: translateX(100%);
+  transition: 0.3s linear;
+}
+
+.container .side-menu #close {
+  margin-bottom: 1.25rem;
+}
+
+.container .side-menu li {
+  width: 100%;
+  padding-block: 0.57rem;
+}
+
+.container .side-menu a {
+  padding-bottom: 5px;
+  font-family: specimen-inter-1;
+  transition: 0.3s linear;
+}
+
+.container .side-menu a:hover {
+  border-bottom: 2px solid var(--White);
+}
+
+.container .side-menu.active {
+  right: 0;
+  transform: translateX(0);
+}
+
+.container.layout-cover {
+  opacity: 25%;
+  background-color: var(--Black);
 }
 
 .container .hero-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  /*  position: relative; */
   padding: var(--pad);
   border-bottom: 1px solid var(--WhiteBlue);
 }
@@ -292,13 +307,18 @@ img {
     font-weight: bold;
   }
 
-  .header .side-menu {
+  .container .side-menu {
     height: 100vh;
-    min-width: 25%;
+    min-width: 50%;
     align-items: flex-start;
+    z-index: 2;
   }
 
-  .header .side-menu li a {
+  .container .side-menu li {
+    padding: 1.25rem;
+  }
+
+  .container .side-menu li a {
     width: 100%;
     font-size: 1.25rem;
   }
@@ -335,7 +355,10 @@ img {
 
   .container .stats-section .stat-description {
     font-size: var(--text);
+    position: relative;
+    z-index: 1;
   }
+
   .footer {
     flex-direction: row;
     justify-content: space-between;
