@@ -38,6 +38,17 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <aside class="side-menu" id="side-menu">
+      <nav>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Our Work</a></li>
+          <li><a href="#">Partners</a></li>
+          <li><a href="#">Annual Report</a></li>
+          <li><a href="#">Donate</a></li>
+        </ul>
+      </nav>
+    </aside>
     <div class="wrapper">
       <header class="header">
         <nav class="navigation">
@@ -84,13 +95,6 @@
             every child we reach today becomes a graduate tomorrow.
           </p>
         </section>
-        <ul class="side-menu">
-          <li><a href="#">About</a></li>
-          <li><a href="#">Our Work</a></li>
-          <li><a href="#">Partners</a></li>
-          <li><a href="#">Annual Report</a></li>
-          <li><a href="#">Donate</a></li>
-        </ul>
         <ul class="stats-section">
           <!-- 1 -->
           <li class="stat-card">
@@ -167,12 +171,6 @@
       </footer>
     </div>
 
-    <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>,
-      Coded by <a href="#">Muhammed arrujbani</a>.
-    </div>
-
     <script>
       const openButton = document.querySelector(".open-button");
       const closeButton = document.querySelector(".close-button");
@@ -184,7 +182,7 @@
 
         menu.classList.add("active");
         document.querySelector("main").classList.add("layout-cover");
-        document.querySelector(".stats-section").classList.add("layout-cover");
+        document.querySelector("footer").classList.add("layout-cover");
       });
 
       closeButton.addEventListener("click", () => {
@@ -193,9 +191,7 @@
 
         menu.classList.remove("active");
         document.querySelector("main").classList.remove("layout-cover");
-        document
-          .querySelector(".stats-section")
-          .classList.remove("layout-cover");
+        document.querySelector(".footer").classList.remove("layout-cover");
       });
     </script>
   </body>
