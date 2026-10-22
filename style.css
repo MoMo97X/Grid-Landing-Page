@@ -30,18 +30,24 @@
   font-family: specimen-inter-1;
   src: url(assets/fonts/inter/inter-variable.ttf);
   font-weight: 400;
+  font-display: swap;
 }
 
 @font-face {
   font-family: specimen-inter-2;
   src: url(assets/fonts/inter/inter-variable.ttf);
   font-weight: 500;
+  font-display: swap;
+}
+
+html,
+body {
+  min-height: 100%;
 }
 
 body {
   margin: 0;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 ul {
@@ -110,13 +116,15 @@ img {
 }
 
 .side-menu {
-  position: absolute;
-  top: 4.5rem;
+  position: fixed;
+  top: clamp(4.5rem, 3.75rem + 3.75vw, 6rem);
   right: 0;
+
   width: 100%;
   border-top: 0.063rem solid var(--WhiteBlue);
   background-color: var(--Blue600);
-  z-index: 1000;
+  z-index: 20;
+
   transform: translateX(100%);
   transition: transform 0.3s ease-in-out;
 }
@@ -217,10 +225,13 @@ img {
 
 /* stats section start */
 .stats-section {
+  display: flex;
+  flex-direction: column;
   font-family: specimen-inter-1, Arial, impact, sans-serif;
 }
 
 .stats-section .stat-card {
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -285,11 +296,10 @@ img {
 
 /* large screen styling */
 
-@media (min-width: 1024px) {
+@media (min-width: 64rem) {
   .side-menu {
-    top: 5rem;
     width: 30rem;
-    height: 100vh;
+    height: calc(100vh - clamp(4.5rem, 3.75rem + 3.75vw, 6rem));
   }
 
   .header .brand-title {
